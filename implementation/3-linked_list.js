@@ -61,6 +61,16 @@ class LinkedList {
 
     return currentNode
   }
+  remove(index) {
+    if (this.length < index) {
+      throw new Error("Given index is greater than the linked list length!")
+    }
+    let previousNode = this.getNodeAtIndex(index - 1)
+    let unwantedNode = previousNode.next
+
+    previousNode.next = unwantedNode.next
+    this.length--
+  }
 }
 
 let myLinkedList = new LinkedList(10);
@@ -72,4 +82,6 @@ myLinkedList.insert(1, 3)
 myLinkedList.insert(1, 4)
 myLinkedList.insert(1, 5)
 myLinkedList.insert(4, 58)
+myLinkedList.printList()
+myLinkedList.remove(4)
 myLinkedList.printList()
