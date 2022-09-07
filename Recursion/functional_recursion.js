@@ -13,4 +13,21 @@ function reverseArray(i, array) {
     reverseArray(i + 1, array)
     return array
 }
-console.info(reverseArray(0, [1,2,3,4,5]))
+console.info(reverseArray(0, [1, 2, 3, 4, 5]))
+
+// PALINDROME CHECK
+
+function palindromeCheck(i, string) {
+    let n = string.length
+
+    if (i >= n / 2) {
+        return true
+    }
+
+    if (string[i] != string[n - i - 1]) {
+        return false
+    }
+    return palindromeCheck(i + 1, string)
+}
+
+console.info(palindromeCheck(0, "ABAB"))
