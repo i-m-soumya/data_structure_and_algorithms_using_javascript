@@ -25,4 +25,26 @@ function subSequence(i, arr) {
     subSequence(i + 1, arr)
     
 }
-subSequence(0, [])
+//subSequence(0, [])
+
+//PRINTING SUB SEQUENCES if sum of subsequence matches 
+
+function subSequence(seq, i, arr, sum, carrySum) { 
+
+    if (i >= seq.length) {
+        if (carrySum === sum) {
+            console.log(arr)
+        }
+        return
+    }
+    //take
+    arr.push(seq[i])
+    carrySum += seq[i]
+    subSequence(seq, i + 1, arr, sum, carrySum)
+    //not take
+    arr.pop()
+    carrySum -= seq[i]
+    subSequence(seq, i + 1, arr, sum, carrySum)
+    
+}
+subSequence([1, 2, 1], 0, [], 2, 0)
