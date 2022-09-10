@@ -25,7 +25,7 @@ function subSequence(i, arr) {
     subSequence(i + 1, arr)
     
 }
-//subSequence(0, [])
+subSequence(0, [])
 
 //PRINTING SUB SEQUENCES if sum of subsequence matches 
 
