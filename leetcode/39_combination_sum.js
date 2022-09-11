@@ -1,6 +1,6 @@
 /**
 * @desc finds the combination of subarray of a given target Leetcode
-* @link https://leetcode.com/problems/combination-sum/submissions/
+* @link https://leetcode.com/problems/combination-sum
 * @return void  
 */
 function sumCombination(candidates, target, index, combination, result) {
