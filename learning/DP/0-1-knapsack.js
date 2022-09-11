@@ -26,4 +26,4 @@ let dp = Array(n).fill().map(() => Array(W).fill(-1));
 
 console.log(knapSack(W, wt, val, n, dp));
 
-console.log(dp)
+console.log(dp) 
