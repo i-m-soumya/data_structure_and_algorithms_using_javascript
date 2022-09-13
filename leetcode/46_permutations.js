@@ -4,7 +4,7 @@
 * @return void  
 */ 
 // APPROACH 1
-function permutation(nums, ds, comb, result) {
+function permutation1(nums, ds, comb, result) {
     if (comb.length === nums.length) {
         let finalComb = [...comb]
         result.push(finalComb)
@@ -15,7 +15,7 @@ function permutation(nums, ds, comb, result) {
         if (!ds[i]) {
             comb.push(nums[i])
             ds[i] = true
-            permutation(nums, ds, comb, result)
+            permutation1(nums, ds, comb, result)
             comb.pop()
             ds[i] = false
         }
@@ -24,7 +24,35 @@ function permutation(nums, ds, comb, result) {
 let result = []
 let comb = []
 let ds = []
-let nums = [1, 2, 3, 4]
-permutation(nums, ds, comb, result)
+let nums = [1, 2, 3]
+permutation1(nums, ds, comb, result)
+console.log(result)
 
-console.log(result.length)
+
+
+// APPROACH 2 <---- Less Space complexity
+
+function permutation2(index, nums, res) {
+    if (index === nums.length - 1) {
+        let finalRes = [...nums]
+        res.push(finalRes)
+        return
+    }
+    for (let i = index; i < nums.length; i++) {
+        swap(nums, i, index)
+        permutation2(index + 1, nums, res)
+        swap(nums, i, index)
+    }
+}
+
+function swap(nums, i, j) {
+    let temp = nums[i]
+    nums[i] = nums[j]
+    nums[j] = temp
+}
+
+let res = []
+let numsArr = [1, 2, 3]
+permutation2(0, numsArr, res)
+
+console.log(res)
