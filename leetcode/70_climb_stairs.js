@@ -1,15 +1,3 @@
-var climbStairs = function(n) {
-    if (n <= 3) {
-        return n
-    }
-    let waysToReach = [0, 1, 2, 3]
-    
-    for(let i = 4; i <= n; i++) {
-        waysToReach.push(waysToReach[i-1] + waysToReach[i-2])
-    }
-    return waysToReach[n]
-};
-
 
 // USING RECURSION
 var climbStairs2 = function(n) {
@@ -36,4 +24,22 @@ function dfs(target, base, stack, result) {
     dfs(target, base, stack, result)
     base = base - 2
     stack.pop()
+}
+
+// USING DP
+let dp = new Array(5).fill(-1)
+console.log(cStairSolver(4, dp))
+
+function cStairSolver(n, dp) {
+    if (n == 0 || n == 1) {
+        return 1
+    }
+    if (n < 0) {
+        return 0
+    }
+    dp[n - 1] = dp[n - 1] == -1 ? cStairSolver(n - 1, dp) :  dp[n - 1]
+    dp[n - 2] = dp[n - 2] == -1 ? cStairSolver(n - 2, dp) :  dp[n - 2]
+        
+    dp[n] = dp[n - 1] + dp[n - 2]
+    return dp[n]
 }
