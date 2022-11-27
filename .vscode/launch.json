@@ -12,7 +12,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\leetcode\\68_text_justification.js"
+            "program": "${workspaceFolder}\\leetcode\\446_arithmetic_slices_2_subsequence.js"
         }
     ]
 }
